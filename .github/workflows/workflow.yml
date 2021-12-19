@@ -1,0 +1,32 @@
+name: opa-auth-server-build
+
+on:
+  push:
+    branches: 
+      - master
+      - develop
+      - 'feature/**'
+    paths-ignore:
+      - README.md
+
+jobs:
+  build:
+    name: Build image
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-20.04 ]
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build -t opa-auth-server .
+
+      # deploy the app on heroku container registry
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "opa-auth-server"
+          heroku_email: "devbiswajitroy@gmail.com"
+          usedocker: true
