@@ -1,4 +1,3 @@
 FROM openpolicyagent/opa:0.35.0
-ENV PORT=8181
 EXPOSE 8181
-CMD ["run", "--server", "--addr=:$PORT", "--set=decision_logs.console=true"]
+CMD opa run --server --addr=:$PORT --set=decision_logs.console=true
