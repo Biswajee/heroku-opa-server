@@ -1,3 +1,4 @@
 FROM openpolicyagent/opa:0.35.0
-ENV PORT=8181
-CMD ["run --server --addr :$PORT --set=decision_logs.console=true"]
+# used for locally testing the container than heroku
+EXPOSE 8181
+ENTRYPOINT ["run", "--server", "--addr=:$PORT", "--set=decision_logs.console=true"]
