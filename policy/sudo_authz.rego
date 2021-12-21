@@ -1,4 +1,4 @@
-package sudo.authz
+package sshd.authz
 
 # By default, users are not authorized.
 default allow = false
