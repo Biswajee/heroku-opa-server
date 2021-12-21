@@ -1,4 +1,4 @@
-package sshd.authz
+package sshd
 
 # # By default, users are not authorized.
 # default allow = false
@@ -13,4 +13,4 @@ package sshd.authz
 #     not allow
 # }
 
-default allow = true
+authz := true
