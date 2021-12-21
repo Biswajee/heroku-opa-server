@@ -1,4 +1,5 @@
-FROM openpolicyagent/opa:0.35.0
-# used for locally testing the container than heroku
-EXPOSE 8181
-ENTRYPOINT ["run", "--server", "--addr", ":8181"]
+FROM scratch
+ENV PORT=8181
+RUN curl -L -o opa https://openpolicyagent.org/downloads/v0.35.0/opa_linux_amd64_static
+RUN chmod 755 ./opa
+CMD ./opa run --server --addr :$PORT
