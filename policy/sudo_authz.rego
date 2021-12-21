@@ -1,15 +1,17 @@
 package sshd.authz
 
-# # By default, users are not authorized.
-# default allow = false
+# By default, users are not authorized.
+default allow = false
 
-# # Allow access to any user that has the "admin" role.
-# allow {
-#     data.roles["admin"][_] == input.sysinfo.pam_username
-# }
+# Allow access to any user that has the "admin" role.
+allow {
+    data.roles["admin"][_] == input.sysinfo.pam_username
+}
 
-# # If the user is not authorized, then include an error message in the response.
-# errors["Request denied by administrative policy"] {
-#     not allow
-# }
-allow := true
+# If the user is not authorized, then include an error message in the response.
+errors["Request denied by administrative policy"] {
+    not allow
+}
+
+# the result being recognized by the client
+result = {"allow": allow}
