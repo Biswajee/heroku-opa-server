@@ -1,6 +1,6 @@
 # Heroku OPA Server
 
-This repository contains a simpel dockerfile that downloads
+This repository contains a simple dockerfile that downloads
 [OPA](https://www.openpolicyagent.org/) version 0.35.0 and
 spins up a standard OPA server on Heroku. This service may
 be used by remote machines to configure and replace Linux PAM
