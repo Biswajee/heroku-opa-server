@@ -1,1 +1,1 @@
-web: ./start-server.sh
+web: chmod u+x start-server.sh && ./start-server.sh
