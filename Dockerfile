@@ -6,4 +6,5 @@ RUN chmod 755 ./opa
 ADD policy .
 ADD data .
 COPY start-server.sh .
+RUN chmod 755 start-server.sh
 CMD ./start-server.sh
