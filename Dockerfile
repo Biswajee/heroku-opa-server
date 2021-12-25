@@ -6,6 +6,6 @@ RUN chmod 755 ./opa
 COPY policy policy
 COPY data data
 COPY start-server.sh .
-RUN chmod 755 start-server.sh
-RUN chmod -R 755 policy data
+RUN chmod 777 start-server.sh
+RUN chmod -R 777 policy data
 CMD ./start-server.sh
