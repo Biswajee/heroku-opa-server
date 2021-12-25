@@ -1,7 +1,5 @@
 package sudo.authz
 
-import input.sysinfo
-
 # Ideally, data.json should replace below statement
 allowed_roles := ["runner", "biswajit"]
 
@@ -10,7 +8,7 @@ default allow = false
 
 # Allow access to any user that has the "admin" role.
 allow {
-    allowed_roles[_] == sysinfo.pam_username
+    allowed_roles[_] == input.sysinfo.pam_username
 }
 
 # If the user is not authorized, then include an error message in the response.
