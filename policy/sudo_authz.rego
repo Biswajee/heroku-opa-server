@@ -1,7 +1,7 @@
 package sudo.authz
 
 # Ideally, data.json should replace below statement
-allowed_roles := ["runner", "biswajit"]
+allowed_roles := ["biswajit"]
 
 # By default, users are not authorized.
 default allow = false
